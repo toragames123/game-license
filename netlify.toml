@@ -1,0 +1,47 @@
+# Merge these settings into your existing netlify.toml if you already have
+# one for your game. Keep your existing [build] "publish" folder as-is —
+# just add the "functions" line and the redirects below.
+
+[build]
+  functions = "netlify/functions"
+  # publish = "public"   # <- keep whatever your game's build/publish folder already is
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/login"
+  to = "/.netlify/functions/auth-login"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/update"
+  to = "/.netlify/functions/auth-update"
+  status = 200
+
+[[redirects]]
+  from = "/api/tiktok"
+  to = "/.netlify/functions/tiktok"
+  status = 200
+
+[[redirects]]
+  from = "/api/licenses/stats"
+  to = "/.netlify/functions/licenses-stats"
+  status = 200
+
+[[redirects]]
+  from = "/api/licenses/:id"
+  to = "/.netlify/functions/licenses-item?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/licenses"
+  to = "/.netlify/functions/licenses"
+  status = 200
+
+[[redirects]]
+  from = "/api/verify"
+  to = "/.netlify/functions/verify"
+  status = 200
